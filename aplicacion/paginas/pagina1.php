@@ -4,10 +4,12 @@
     //Comprobar que hay sesion
     
     session_start();
+    validaSession();
 
-    if(!validaSession())
+    if(!validaPagina(basename($_SERVER["PHP_SELF"])))
     {
-        
+        header("Location: ../403.php");
+        exit;
     }
 
     //y sino te llevo al login y exit
@@ -30,16 +32,7 @@
         ?>
 
     </header>
-    <div style="display: flex;">
-
-
-        <?php
-        foreach ($_SESSION['paginas'] as $key => $value) {
-            echo" <a href='./".$value."'>".$key."</a> ";
-        }
-        ?>
-    </div>
-    <br>
+   
     <a href="../logout.php">Logout</a>
 
 </body>
