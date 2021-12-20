@@ -2,7 +2,14 @@
     //llamar a verifica sesion
     //validamos el formulario y ponemos los errores validar el perfil de ese usuariio
 
+    require_once "./funciones/validaSesion.php";
    //USER u1 pass 1
+   session_start();
+
+    if(validaSession())
+    {
+        header("Location: ./paginas/menu.php");
+    }
 
 ?>
 
@@ -16,6 +23,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    
     <form action="./funciones/valida.php" method="post">
         <label for="user">Usuario</label><input type="text" name="user" id="user">
         <label for="pass">Password</label><input type="password" name="pass" id="pass">
