@@ -7,8 +7,12 @@ header
     justify-content: center;
 }
 
-div a
+h2
 {
+    padding: 30px;
+    color: #d02b4d;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
 

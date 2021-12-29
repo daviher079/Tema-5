@@ -14,10 +14,10 @@
         <h1>Ejemplo .htaccess</h1>
     </header>
     <main>
-        <h2>Desea entrar en:</h2>
-        <div style="display: block;">
-            <a href="./administrador/config.php">Administrador</a>
-            <a href="./usuarios/perfil.php">Usuario</a>
+        <div style="display: flex;">
+            <h2>Desea entrar en:</h2>
+            <a class="boton" href="./administrador/config.php">Administrador</a>
+            <a class="boton" href="./usuarios/perfil.php">Usuario</a>
 
         </div>
     </main>

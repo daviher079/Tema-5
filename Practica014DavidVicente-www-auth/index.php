@@ -77,6 +77,7 @@
             $pagina=basename($_SERVER['SCRIPT_FILENAME']);
             echo $pagina;
         ?>"><img src="./web-root/img/gafas-de-sol.png" height="100px"></a>
+        <a href="../index.html"><img src="./web-root/img/volver.png" height="25px"></a>
     </footer>
 </body>
 </html>
