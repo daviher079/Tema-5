@@ -2,15 +2,15 @@
     session_start();
     if(isset($_SESSION['validada']))
     {
-        echo "nombre: ".$_SESSION['user']."<br/>";
-        echo "valida: ".$_SESSION['validada'];
+        echo "<p>nombre: ".$_SESSION['user']."</p>";
+        echo "<p>valida: ".$_SESSION['validada']."</p>";
 
         if(isset($_SESSION['contador']))
         {
-            echo $_SESSION['contador']."<br>";
+            echo "<p>".$_SESSION['contador']."</p>";
         }
 
-        echo session_id();
+        echo "<p>".session_id()."</p>";
 
     }else
     {

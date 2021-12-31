@@ -16,6 +16,68 @@ h2
     
 }
 
+.loginSesiones
+{
+
+    
+    height: 300px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.loginSesiones form
+{
+    background-color: #d02b4d;
+    height: 250px;
+    padding: 30px; 
+}
+
+form section
+{
+    width: 250px;
+    margin-bottom: 25px;
+}
+
+form section label
+{
+    width: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    float: left;
+    margin-bottom: 5px;
+}
+
+form section input[type='text'], input[type='password']
+{
+
+    width: 175px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d02b4d;
+}
+
+form input[type='submit']
+{
+    float: right;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    padding: 7px;
+    font-size: 1.05em;
+}
+
+
+
+form input[type='submit']:hover
+{
+    cursor: pointer;
+    color: rgb(192, 191, 191);
+}
+
+
+
 .logo
 {
    

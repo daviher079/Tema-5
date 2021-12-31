@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
+    <style>
+        .boton1
+       {
+           -webkit-transition: 1s ease-in-out;
+           transition: 1s ease-in-out;
+       }
+       .boton1:hover
+       {
+           background-color: #9c102c;
+           -webkit-transform: scale(.85);
+           transform: scale(.85);
+       }
+    </style>
     <title>Ejemplo .htaccess</title>
 </head>
 <body>
@@ -16,8 +29,8 @@
     <main>
         <div style="display: flex;">
             <h2>Desea entrar en:</h2>
-            <a class="boton" href="./administrador/config.php">Administrador</a>
-            <a class="boton" href="./usuarios/perfil.php">Usuario</a>
+            <a class="boton boton1" href="./administrador/config.php">Administrador</a>
+            <a class="boton boton1" href="./usuarios/perfil.php">Usuario</a>
 
         </div>
     </main>
