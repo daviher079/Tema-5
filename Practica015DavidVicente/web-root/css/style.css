@@ -1,19 +1,32 @@
-header
+.cabecera
 {
-    background-color: white;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: auto;
+    height: 50px;
+    background-color: #d02b4d;
+    padding: 20px;
+    
 }
 
-h2
+.cabecera h1
 {
-    padding: 30px;
-    color: #d02b4d;
-    text-align: center;
+    color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    font-size: 2.4em;
+    display: inline-block;
+
+}
+
+.cabecera a 
+{
+    float: right;
+}
+
+.fondo
+{
+    position:absolute; 
+    z-index:1; 
+    width:100%;
+    margin-bottom: 30px;
 }
 
 .loginSesiones
@@ -94,58 +107,6 @@ form input[type='submit']:hover
     color: rgb(192, 191, 191);
 }
 
-.logo
-{
-   
-    left: 0;
-    height: 90px;
-    /*min-width: 90px;*/
-}
-
-h1
-{
-    padding: 30px;
-    color: #d02b4d;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 45px;
-}
-
-.indexTema2
-{
-    display: flex;
-    padding: 50px;
-    flex-direction: column;
-    
-}
-
-.indexTema2 h2
-{
-    margin-top: 50px;
-}
-
-.variables
-{
-    display: flex;
-    padding: 50px;
-    flex-direction: column;
-    
-}
-
-.variables h2
-{
-    margin-top: 50px;
-}
-
-main
-{
-    display: flex;
-    padding: 50px;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-
 
 .boton
 {
@@ -189,8 +150,6 @@ footer p
     justify-content: center;
     
 }
-
-
 
 .boton1
 {
