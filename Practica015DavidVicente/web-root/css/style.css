@@ -367,4 +367,99 @@ form input[type='submit']
     font-size: 1.05em;
 }
 
+.mainModPerfil
+{
+    padding: 40px;
+}
+
+.mainModPerfil h2
+{
+    color: #d02b4d;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+}
+
+.mainModPerfil h4 
+{
+    color: #d02b4d;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 45px;
+}
+
+.mainModPerfil form 
+{
+    border: 3px solid #d02b4d;
+    padding: 90px 150px;
+    border-radius: 25px;
+}
+
+.mainModPerfil form section label
+{
+    width: 140px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d02b4d;
+    float: left;
+    text-align: left;
+    padding: 2px;
+}
+
+
+.mainModPerfil table
+{
+    width:750px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid #d02b4d;
+    text-align: center;
+}
+
+.mainModPerfil table thead
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    color: #d02b4d;
+    padding: 5px;
+}
+
+.mainModPerfil table th
+{
+    border: 2px solid #d02b4d;
+    text-align: left;
+    font-size: 1.1em;
+    padding: 5px;
+    font-weight: 400;
+    color: #d02b4d;
+    text-align: center;
+    
+}
+
+.mainModPerfil table td
+{
+    padding: 5px;
+    border: 2px solid #d02b4d;
+    font-size: 0.9em;    
+}
+
+.mainModPerfil table td a
+{
+    text-decoration: none;
+    color: #d02b4d;
+
+}
+
+.mainModPerfil table td a:hover
+{
+    color: #9c102c;
+}
+
+.mainModPerfil form input[type="number"]
+{
+    background-color: transparent;
+    width: 200px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d02b4d;
+    border-style: none;
+    border-bottom: 2px solid #d02b4d;
+}
 

@@ -25,43 +25,7 @@
     <title>Modificar Perfil</title>
 
     <style>
-        .mainModPerfil
-        {
-            padding: 40px;
-        }
-
-        .mainModPerfil h2
-        {
-            color: #d02b4d;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 25px;
-        }
-
-        .mainModPerfil h4 
-        {
-            color: #d02b4d;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 45px;
-        }
-
-        .mainModPerfil form 
-        {
-            border: 3px solid #d02b4d;
-            padding: 90px 150px;
-            border-radius: 25px;
-        }
-
-        .mainModPerfil form section label
-        {
-            width: 140px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #d02b4d;
-            float: left;
-            text-align: left;
-            padding: 2px;
-        }
+        
     </style>
 </head>
 <body>
@@ -83,8 +47,8 @@
 
         if(validarModificacion()==true)
         {
-            /*mostrarPaginasUsuario($_REQUEST['user'], $_REQUEST['nCompleto']);
-            header("location: ./indexPerfil.php");*/
+            
+            header("location: ./indexPerfil.php");
         }else
         {
 
@@ -94,18 +58,16 @@
     <form action="<?php self();?>" method="post" id="formModPerfil">
            <?php 
                 $arrayDatos = extraerDatosUsuario($_SESSION['usuario']);
-                echo $arrayDatos[0]."<br>";
-                echo $arrayDatos[1]."<br>";
-                echo $arrayDatos[2]."<br>";
            ?>
+           <input type="hidden" name="passArray" value="<?php echo $arrayDatos[0];?>">
             <section>
                 <label for="user">Usuario</label>
                 <input style="color: #c57485;" type="text" onfocus="this.blur()" name="user" placeholder="Usuario" id="user" readonly="readonly" value="<?php echo $_SESSION['usuario'] ?>">
             </section>
 
             <section>
-                <label for="nCompleto">Nombre Completo</label>
-                <input type="text" name="nCompleto" placeholder="Nombre completo" id="nCompleto"  value="<?php recordarGenerico("nCompleto",$arrayDatos[0])?>">
+                <label for="nCompleto">N. Completo</label>
+                <input type="text" name="nCompleto" placeholder="Nombre completo" id="nCompleto"  value="<?php recordarGenerico("nCompleto",$arrayDatos[1])?>">
                 <?php
                     if(isset($_REQUEST['modificarPerfil']) && expresionGenerico(PATRONNOMBRECOMPLETO, $_REQUEST['nCompleto'])==false)
                     {
@@ -116,8 +78,8 @@
             </section>
 
             <section>
-                <label for="correo">Correo electronico</label>
-                <input type="mail" name="correo" placeholder="Correo electronico" id="correo" value="<?php recordarGenerico("correo",$arrayDatos[1])?>">
+                <label for="correo">C. Electronico</label>
+                <input type="mail" name="correo" placeholder="Correo electronico" id="correo" value="<?php recordarGenerico("correo",$arrayDatos[2])?>">
                 <?php
                     comprobarGenerico("correo");
                 ?>
@@ -125,7 +87,7 @@
 
             <section>
                 <label for="fecha">F. Nacimiento</label>
-                <input type="date" name="fecha" id="fecha" value="<?php recordarGenerico("fecha", $arrayDatos[2])?>">
+                <input type="date" name="fecha" id="fecha" value="<?php recordarGenerico("fecha", $arrayDatos[3])?>">
                 <?php
                     comprobarGenerico("fecha");
                 ?>
@@ -135,18 +97,28 @@
                 <label for="pass">Contraseña</label>
                 <input type="password" name="pass" id="passF" value="<?php recordarPass("pass")?>">
                 <?php
-                    if(isset($_REQUEST['crearCuenta']) && validarPass()==false)
+
+                    if(isset($_REQUEST['modificarPerfil']))
                     {
-                        label("Error. Asegurese de haber introducido la misma contraseña en los dos campos<br>");
-                        $_REQUEST['pass']="";
-                        $_REQUEST['rPass']="";
+                        $passFormu=sha1($_REQUEST['pass']);
+                        if($passFormu==$_REQUEST['passArray'])
+                        {
+                            label("Error no puede introducir la misma contraseña que ya tenía<br>");
+                        }
+                        elseif(validarPass()==false)
+                        {
+                            label("Error. Asegurese de haber introducido la misma contraseña en los dos campos<br>");
+                            $_REQUEST['pass']="";
+                            $_REQUEST['rPass']="";
+
+                        }
                     }
                     comprobarGenerico("pass");
                 ?>
             </section>
 
             <section>
-                <label for="rPass">Repetir Contraseña</label>
+                <label for="rPass">Rep. Contraseña</label>
                 <input type="password" name="rPass" id="rPass" value="<?php recordarPass("rPass")?>">
                 <?php
                     comprobarGenerico("rPass");

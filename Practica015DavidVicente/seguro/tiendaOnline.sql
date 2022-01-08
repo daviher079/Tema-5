@@ -79,9 +79,7 @@ insert into paginas (codigo,descripcion,url) values ('PAG02','Modificar perfil',
 insert into paginas (codigo,descripcion,url) values ('PAG03','Insertar productos','insertarProductos.php');
 insert into paginas (codigo,descripcion,url) values ('PAG04','Modificar productos','modificarProductos.php');
 insert into paginas (codigo,descripcion,url) values ('PAG05','Mostrar ventas','mostrarVentas.php');
-insert into paginas (codigo,descripcion,url) values ('PAG06','Modificar ventas','modificarVentas.php');
-insert into paginas (codigo,descripcion,url) values ('PAG07','Mostrar albaranes','mostrarAlbaranes.php');
-insert into paginas (codigo,descripcion,url) values ('PAG08','Modificar albaranes','modificarAlbaranes.php');
+insert into paginas (codigo,descripcion,url) values ('PAG06','Mostrar albaranes','mostrarAlbaranes.php');
 
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG02');
@@ -89,14 +87,12 @@ insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG03');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG04');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG05');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG06');
-insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG07');
-insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG08');
 
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG02');
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG03');
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG05');
-insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG07');
+insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG06');
 
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG02');
