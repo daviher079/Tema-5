@@ -17,11 +17,10 @@
     <title>Crear Cuenta</title>
 </head>
 <body>
-    <header>
-        <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
-        <h1>Crear Cuenta</h1>
+    <header class="cabecera">
+       <h1>Tienda Online</h1>
+       
     </header>
-
     <?php
         require_once("../codigo/Funciones.php");
         require_once("./validarCrearCuenta.php");

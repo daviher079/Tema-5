@@ -1,8 +1,7 @@
 <?php
    //define("PATRONNOMBRECOMPLETO", '/^[A-Z]{1}[a-z]{2}\s^[A-Z]{1}[a-z]{2,}\s^[A-Z]{1}[a-z]{2,}\s/i');
    define("PATRONNOMBRECOMPLETO", '/[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}\s[A-Z]{1}[a-z]{2,}/');
-    define("PATRONCONTRASEÑA", '/[a-zA-Z0-9]{5}[A-Z]{1}[a-z]{1}[0-9]{1}/');
-    
+    define("PATRONCONTRASEÑA", '/^[A-Za-z0-9]{5,}([A-Z]{1}[a-z]{1}[0-9]{1})$/');
     
     require_once("../seguro/datosBD.php");
     function validarCuenta()
@@ -10,7 +9,6 @@
         $bandera=true;
         if(isset($_REQUEST['crearCuenta']))
         {
-            
             
             if(validarUsuario()==false && validarNombreComp()==true && validarFecha()==true && validarMail()==true && validarPass()==true)
             {

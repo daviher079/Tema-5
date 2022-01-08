@@ -20,8 +20,6 @@
             
             require_once "./codigo/validaSesion.php";
             
-            //Comprobar que hay sesion
-            
             session_start();
         
             if(validaSession()==false)
@@ -32,18 +30,35 @@
                 echo "<a href='./paginas/indexPerfil.php'><img src='./web-root/img/userPR15-01.png' height='50px'></a>";
             }
         
-            //y sino te llevo al login y exit
+            
             
         ?>
     </header>
     <main>
-        <img class="fondo" src="./web-root/img/tshirt-gc9f1d4dee_1920.jpg">  
+        <img class="fondo" src="./web-root/img/tshirt-gc9f1d4dee_1920.jpg"> 
+        <div>
+            <div class="productos">
+
+            <?php
+            $array=mostrarProductos();
+            
+            foreach ($array as $key => $value) {
+                
+                echo "<a class='enlaces' href='./paginas/comprarProducto.php?codigo=".$key.
+                "&descripcion=".$value['descripcion']."&precio=".$value['precio'].
+                "&stock=".$value['stock']."'><div class='producto'>".$value['precio']."€</br>".
+                $value['descripcion']."</div></a>";
+            }
+            
+            ?>
+            </div>
+        </div>
     </main>
         
 
     <footer>
         <p>Footer de David</p>
-        <a href="../index.html"><img src="../web-root/img/volver.png" height="20px"></a>
+        <a href="../index.html"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

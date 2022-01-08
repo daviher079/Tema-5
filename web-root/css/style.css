@@ -190,13 +190,12 @@ footer p
     
 }
 
-
-
 .boton1
 {
     -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
 }
+
 .boton1:hover
 {
     background-color: #9c102c;
@@ -248,3 +247,5 @@ form input[type='submit']
     border-style: none;
     font-size: 1.05em;
 }
+
+

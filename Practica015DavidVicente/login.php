@@ -26,9 +26,9 @@
 </head>
 <body>
 
-    <header>
-        <img class="logo" src="./web-root/img/LogotipoDavid.jpg"/>
-        <h1>Login</h1>
+    <header class="cabecera">
+       <h1>Tienda Online</h1>
+       
     </header>
     <main class="loginSesiones">
         <?php
@@ -36,8 +36,6 @@
             require("./codigo/consultas.php");
             require("./codigo/Funciones.php");
 
-         
-            
             crearFormulario();
             
             if(valida())

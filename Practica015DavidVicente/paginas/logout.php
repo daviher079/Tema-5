@@ -10,24 +10,27 @@
     <title>LogOut</title>
 </head>
 <body>
-    <main>
+    <header class="cabecera">
+        <h1>Tienda Online</h1>
+        <a href="../login.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            
+    </header>
+    <main class="logout">
         <?php
             session_start();
             session_destroy();
-        
-            echo "<h1>Ha cerrado la sesión</h1>";
         ?>
+        <section>
+            <h1>Ha cerrado la sesión</h1>
+            <a class="boton" href="../index.php">Inicio</a>
+        </section>
         
-        <a class="boton" href="../index.php">Inicio</a>
 
     </main>
 <footer>
         <p>Footer de David</p>
-        <a href="./verCodigo.php?ficheroPHP=<?php
-            $pagina=basename($_SERVER['SCRIPT_FILENAME']);
-            echo $pagina;
-        ?>"><img src="../web-root/img/gafas-de-sol.png" height="100px"></a>
-        <a href="../index.php"><img src="../web-root/img/volver.png" height="25px"></a>
+        
+        <a href="../index.php"><img src="../web-root/img/volver.png" height="20px"></a>
     </footer>
 </body>
 </html>

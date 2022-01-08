@@ -23,45 +23,26 @@
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
     <title>Perfil</title>
-
-    <style>
-        .logout
-        {
-            float: right;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            background-color: transparent;
-            color: #d02b4d;
-            text-decoration: none;
-            padding: 7px;
-            font-size: 1.05em;
-        }
-
-        .logout:hover
-        {
-            color: #7c1227;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <img class="logo" src="../web-root/img/LogotipoDavid.jpg"/>
-        <h1>Menu</h1>
+    <header class="cabecera">
+       <h1>Tienda Online</h1>
+       <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+    </header>
+    
+    <aside>
+
         <?php
             echo "<h1>".$_SESSION['nombre']."</h1>";
+            echo"<ul>";
+                foreach ($_SESSION['paginas'] as $key => $value) {
+                    echo" <li><a class='boton' href='./".$value."'>".$key."</a> </li>";
+                }
+            echo "</ul>";    
         ?>
-
-    </header>
+    </aside>   
 
     
     
-
-        <?php
-        foreach ($_SESSION['paginas'] as $key => $value) {
-            echo" <a class='boton' href='./".$value."'>".$key."</a> ";
-        }
-        ?>
-
-    <br>
-
 </body>
 </html>

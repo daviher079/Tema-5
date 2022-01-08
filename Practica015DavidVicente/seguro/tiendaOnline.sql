@@ -76,13 +76,12 @@ insert into usuarios (usuario,clave, nombre, correo, fechaNacimiento, perfil) va
 
 insert into paginas (codigo,descripcion,url) values ('PAG01','Logout','logout.php');
 insert into paginas (codigo,descripcion,url) values ('PAG02','Modificar perfil','modificarPerfil.php');
-insert into paginas (codigo,descripcion,url) values ('PAG03','Comprar Productos','compraProductos.php');
-insert into paginas (codigo,descripcion,url) values ('PAG04','Insertar productos','insertarProductos.php');
-insert into paginas (codigo,descripcion,url) values ('PAG05','Modificar productos','modificarProductos.php');
-insert into paginas (codigo,descripcion,url) values ('PAG06','Mostrar ventas','mostrarVentas.php');
-insert into paginas (codigo,descripcion,url) values ('PAG07','Modificar ventas','modificarVentas.php');
-insert into paginas (codigo,descripcion,url) values ('PAG08','Mostrar albaranes','mostrarAlbaranes.php');
-insert into paginas (codigo,descripcion,url) values ('PAG09','Modificar albaranes','modificarAlbaranes.php');
+insert into paginas (codigo,descripcion,url) values ('PAG03','Insertar productos','insertarProductos.php');
+insert into paginas (codigo,descripcion,url) values ('PAG04','Modificar productos','modificarProductos.php');
+insert into paginas (codigo,descripcion,url) values ('PAG05','Mostrar ventas','mostrarVentas.php');
+insert into paginas (codigo,descripcion,url) values ('PAG06','Modificar ventas','modificarVentas.php');
+insert into paginas (codigo,descripcion,url) values ('PAG07','Mostrar albaranes','mostrarAlbaranes.php');
+insert into paginas (codigo,descripcion,url) values ('PAG08','Modificar albaranes','modificarAlbaranes.php');
 
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG02');
@@ -92,18 +91,15 @@ insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG05');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG06');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG07');
 insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG08');
-insert into accede (codigoPerfil,codigoPagina) values ('ADM01','PAG09');
 
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG02');
 insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG03');
-insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG04');
-insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG06');
-insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG08');
+insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG05');
+insert into accede (codigoPerfil,codigoPagina) values ('MOD01','PAG07');
 
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG02');
-insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG03');
 
 insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO01','Camisa de Rayas', 55.23, 40);
 insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO02','Camiseta azul', 23.45, 22);
