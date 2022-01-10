@@ -69,7 +69,7 @@
 
             <section>
                 <label for="codigoProducto">C. Producto</label>
-                <input type="text" name="codigoProducto" id="codigoProducto" value="<?php recordarGenerico("codigoProducto", $arrayDatos[2]) ?>">
+                <input style="color: #c57485;" type="text" name="codigoProducto" onfocus="this.blur()" id="codigoProducto" value="<?php recordarGenerico("codigoProducto", $arrayDatos[2]) ?>">
                 <?php
                     comprobarGenerico("codigoProducto");
                 ?>
