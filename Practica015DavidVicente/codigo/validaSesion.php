@@ -1,4 +1,8 @@
 <?php
+/**
+ * Funcion que comprueba si existe en la variable superglobal
+ * session si el usuario ha validado la sesion devuelve true sino false
+ */
     function validaSession()
     {
         if(isset($_SESSION['validada']))

@@ -7,6 +7,9 @@
 
     if(validaSession()==false)
     {
+        header("location: ./403.php");  
+    }elseif($_SESSION['perfil']=='USR01')
+    {
         header("location: ./403.php");
     }
 

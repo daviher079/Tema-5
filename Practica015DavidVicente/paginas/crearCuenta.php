@@ -27,6 +27,8 @@
 
         if(validarCuenta()==true)
         {
+            //esta funcion carga las paginas a las que puede acceder el usuario cuando la 
+            //sesión ya ha sido validada
             mostrarPaginasUsuario($_REQUEST['user'], $_REQUEST['nCompleto']);
             header("location: ./indexPerfil.php");
         }else

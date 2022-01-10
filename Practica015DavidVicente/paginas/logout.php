@@ -1,3 +1,18 @@
+<?php
+    require_once "../codigo/validaSesion.php";
+    
+    //Comprobar que hay sesion
+    
+    session_start();
+
+    if(validaSession()==false)
+    {
+        header("location: ./403.php");
+    }
+
+    //y sino te llevo al login y exit
+    
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +32,6 @@
     </header>
     <main class="logout">
         <?php
-            session_start();
             session_destroy();
         ?>
         <section>

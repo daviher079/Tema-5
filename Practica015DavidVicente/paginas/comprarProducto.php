@@ -13,7 +13,11 @@
     <header class="cabecera">
        <h1>Tienda Online</h1>
         <?php
-            
+            /**
+             * Comprobar que la sesion ha sido iniciada antes de hacer la
+             * compra si ha sido iniciada la compra se efecturá sino
+             * se irá a la pantalla de login
+             */
             require_once "../codigo/validaSesion.php";
             
             session_start();
@@ -34,28 +38,28 @@
     <main class="mainProducto">
         <img class ="imgProducto" src="../web-root/img/store-window-g05f275403_1920.jpg" >
         
-
         <?php
-        
-        require_once("./validarCompra.php");
-        if(validarCompra()==true)
-        {
-            
-
-            if(comprobarSesion()==false)
+            require_once("./validarCompra.php");
+            if(validarCompra()==true)
             {
-                header("location: ../login.php");
+                //si la compra es correcta se comprueba si la sesion ha
+                //ya ha sido validada si ha sido validada se genera la venta
+                //sino te lleva login
 
-            }else
-            {
-                generarVenta();
-                
+                if(comprobarSesion()==false)
+                {
+                    header("location: ../login.php");
+
+                }else
+                {
+                    generarVenta();
+                    //funcion que genera una compra
+                }
+
+                    
             }
-
-                
-        }
-        else
-        {
+            else
+            {
 
     ?>
 
@@ -73,6 +77,7 @@
                     <label for="nProductos">Nº unidades</label>
                     <input type="number" name="cantidad" id="nProductos"  min="1" value="1">
                     <?php
+                        //Se comprueba que el input no esté vacio
                         comprobarCantidad();
                     ?>
                 </section>

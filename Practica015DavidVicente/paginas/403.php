@@ -14,7 +14,7 @@
 
 <header class="cabecera">
        <h1>Tienda Online</h1>
-       <a href="../login.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+       <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
     </header>    
 
     <main class="logout">

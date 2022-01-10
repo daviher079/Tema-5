@@ -1,6 +1,11 @@
 <?php
 
-
+/*
+    Funcion que valida si el formulario de login ha sido correcto
+    inicia la sesión y se carga en la variable superglobal si la sesion
+    está validada el usuario el nombre del usuario y su perfil todo esto 
+    rescatandolo antes de la base de datos
+*/
 function valida()
 {
     if(isset($_REQUEST['valida']))
@@ -16,6 +21,7 @@ function valida()
             
             $sql->bindParam(":user", $user);
             $encrip = sha1($pass);
+            //Se encripta la contraseña para compararla con la qu exista en la base de datos
             $sql -> bindParam(":pass", $encrip);
             $sql->execute();
 
@@ -27,6 +33,8 @@ function valida()
                 //super SESSION nombre, usuario, perfil
 
                 $row=$sql->fetch();
+                //En el fetch se almacena el contenido que devuelve la sentencia despues de 
+                //ser ejecutada
 
                 if(($row["usuario"]==$user) && ($row["clave"]==$encrip))
                 {
@@ -93,6 +101,9 @@ function valida()
         }
     }
 }
+
+
+//funcion que nos lleva a la pagina del formulario
 
 function crearFormulario()
 {

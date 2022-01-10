@@ -35,6 +35,9 @@
         <?php
             echo "<h1>".$_SESSION['nombre']."</h1>";
             echo"<ul>";
+            /**
+             * Se recorren las páginas a las que puede acceder al usuario
+             */
                 foreach ($_SESSION['paginas'] as $key => $value) {
                     echo" <li><a class='boton' href='./".$value."'>".$key."</a> </li>";
                 }

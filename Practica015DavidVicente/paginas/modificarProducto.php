@@ -7,8 +7,13 @@
 
     if(validaSession()==false)
     {
+        header("location: ./403.php");  
+    }elseif($_SESSION['perfil']=='USR01' || $_SESSION['perfil']=='MOD01')
+    {
         header("location: ./403.php");
     }
+
+    
 
     //y sino te llevo al login y exit
     

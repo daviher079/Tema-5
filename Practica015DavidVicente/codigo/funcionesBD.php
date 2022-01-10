@@ -1,7 +1,14 @@
 <?php
-
+//recuperar los datos para conectarse a la base de datos
 require_once("./seguro/datosBD.php");
 
+
+/*
+    Funcion para crear la base de datos la primera vez que carga va a dar error 
+    porque no va a encontrar la base de datos por lo tanto entrará por el numero de 
+    error 1049 y se ejecutará la funcion flie_get_contents para ejecutar el script que 
+    creará la base de datos
+*/
 function crearBD()
 {
 
@@ -10,8 +17,6 @@ function crearBD()
         
         $con=new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       
-        
     }
     catch(PDOException $e)
     {
@@ -50,6 +55,14 @@ function crearBD()
     
     
 }
+
+
+/*
+    Esta función se ejecutará en el index.php para mostrar todos los productos que
+    hay en la base de datos se crea un array asociativo que será donde se almacenan todos 
+    los productos usando el codigo de producto como key y añadiendo todos sus datos dentro
+    de cada array que ha generado su key. Devuelve el array asociativo
+*/
 
 function mostrarProductos()
 {
