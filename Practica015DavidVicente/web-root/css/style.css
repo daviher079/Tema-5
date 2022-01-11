@@ -463,3 +463,10 @@ form input[type='submit']
     border-bottom: 2px solid #d02b4d;
 }
 
+aside h2
+{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.9em;
+    margin-bottom: 25px;
+}

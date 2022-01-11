@@ -13,7 +13,6 @@
         header("location: ./403.php");
     }
 
-    //y sino te llevo al login y exit
 ?>
 
 <!DOCTYPE html>

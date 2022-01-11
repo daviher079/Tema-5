@@ -108,77 +108,6 @@ require_once("../seguro/datosBD.php");
     }
 
 
-    function modificarProducto()
-    {
-        try
-        {
-            $con= new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
-            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            $preparada=$con->prepare("update productos 
-            set stock = ?
-            WHERE codigoProducto = ?");
-            $con->beginTransaction();
-
-            $cantidadAntigua= (int)$_REQUEST['cantidadArray'];
-            $cantidadFormulario = (int) $_REQUEST['cantidad'];
-            
-            $codProducto = $_REQUEST['codigoProducto'];
-            $stockProducto = (int)recuperarStockProducto($codProducto);
-            $stockFinal=0;
-
-            if($cantidadFormulario>$cantidadAntigua)
-            {
-                $stockFinal = $stockProducto + ($cantidadFormulario - $cantidadAntigua);
-
-            }elseif($cantidadFormulario<$cantidadAntigua)
-            {
-                $stockFinal = $stockProducto - ($cantidadAntigua - $cantidadFormulario);
-            }else
-            {
-                $stockFinal = $stockProducto;
-            }
-            
-
-            $arrayParametros=array($stockFinal, $codProducto);
-            $preparada->execute($arrayParametros);    
-
-            $con->commit();
-            $preparada->closeCursor();
-        }
-        catch(PDOException $e)
-        {
-            $con->rollBack();
-            $numError = $e->getCode();
-    
-            // Si no existe la tabla... (nº error = 1146)
-            if($numError == 1146)
-            {
-                echo "<br>La tabla no existe.<br>";
-            }
-            
-            // Error al no reconocer la BBDD
-            if($numError == 1049)
-            {
-                echo "<br>No se reconoce la BBDD.<br>";
-            }
-            // Error al conectar con el servidor...
-            else if($numError == 2002)
-            {
-                echo "<br>Error al conectar con el servidor.<br>";
-            }
-            // Error de autenticación...
-            else if($numError == 1045)
-            {
-                echo "<br>Error en la autenticación.<br>";
-            }
-        }finally
-        {
-            unset($con);
-        }    
-    }
-
-
     function modificarAlbaran()
     {
         try
@@ -200,8 +129,19 @@ require_once("../seguro/datosBD.php");
             $cantidad = (int) $_REQUEST['cantidad'];
             $usuario = $_REQUEST['usuario'];
 
-            $arrayParametros=array($fecha, $codProducto, $cantidad, $usuario, $idAlbaran);
-            $preparada->execute($arrayParametros);    
+            $arrayModificarAlbaran=array($fecha, $codProducto, $cantidad, $usuario, $idAlbaran);
+            $preparada->execute($arrayModificarAlbaran); 
+            
+            
+
+            $preparada=$con->prepare("update productos 
+            set stock = ?
+            WHERE codigoProducto = ?");
+            
+            $codProducto = $_REQUEST['codigoProducto'];
+
+            $arrayModificaProductos=array($cantidad, $codProducto);
+            $preparada->execute($arrayModificaProductos);    
 
             $con->commit();
             $preparada->closeCursor();
@@ -246,7 +186,6 @@ require_once("../seguro/datosBD.php");
         {
             if(validarFecha()==true && validarCantidad()==true)
             {
-                modificarProducto();
                 modificarAlbaran();
 
                 $bandera=true;
@@ -310,57 +249,5 @@ require_once("../seguro/datosBD.php");
         return $bandera;
     }
 
-
-
-    function recuperarStockProducto($codigoProducto)
-    {
-        try
-        {
-            $stock=0;
-            $con= new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
-            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql=$con->prepare("select stock from productos where codigoProducto = :codigo;");
-
-            $sql->bindParam(":codigo", $codigoProducto);
-            $sql->execute();
-
-            if($sql->rowCount()==1)
-            {
-                $row=$sql->fetch();
-                $stock = $row[0];
-            }
-
-        }catch(PDOException $e)
-        {
-            $numError = $e->getCode();
-    
-            // Si no existe la tabla... (nº error = 1146)
-            if($numError == 1146)
-            {
-                echo "<br>La tabla no existe.<br>";
-            }
-            
-            // Error al no reconocer la BBDD
-            if($numError == 1049)
-            {
-                echo "<br>No se reconoce la BBDD.<br>";
-            }
-            // Error al conectar con el servidor...
-            else if($numError == 2002)
-            {
-                echo "<br>Error al conectar con el servidor.<br>";
-            }
-            // Error de autenticación...
-            else if($numError == 1045)
-            {
-                echo "<br>Error en la autenticación.<br>";
-            }
-        }finally
-        {
-            unset($con);
-        }
-
-        return $stock;
-    }
 
 ?>

@@ -54,6 +54,9 @@
                 {
                     generarVenta();
                     //funcion que genera una compra
+
+                    header("location: ./indexPerfil.php");
+    
                 }
 
                     

@@ -1,8 +1,25 @@
 <?php
-require_once("../seguro/datosBD.php");
-borrarAlbaran($_REQUEST['codigo']);
 
-header("location: ./mostrarAlbaranes.php");
+    require_once "../codigo/validaSesion.php";
+    
+    //Comprobar que hay sesion
+    
+    session_start();
+
+    if(validaSession()==false)
+    {
+        header("location: ./403.php");  
+    }elseif($_SESSION['perfil']=='USR01' || $_SESSION['perfil']=='MOD01')
+    {
+        header("location: ./403.php");
+    }else
+    {
+        require_once("../seguro/datosBD.php");
+        borrarAlbaran($_REQUEST['codigo']);
+        
+        header("location: ./mostrarAlbaranes.php");
+
+    }
 
 /**
  * Esta página recibe el id del albaran 

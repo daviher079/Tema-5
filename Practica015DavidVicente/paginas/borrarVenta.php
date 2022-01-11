@@ -5,11 +5,27 @@
  * y la funcion se conecta a la base de datos para borrar la
  * venta según su id
  */
-require_once("../seguro/datosBD.php");
-borrarVenta($_REQUEST['codigo']);
 
-header("location: ./mostrarVentas.php");
 
+    require_once "../codigo/validaSesion.php";
+        
+    //Comprobar que hay sesion
+
+    session_start();
+
+    if(validaSession()==false)
+    {
+        header("location: ./403.php");  
+    }elseif($_SESSION['perfil']=='USR01' || $_SESSION['perfil']=='MOD01')
+    {
+        header("location: ./403.php");
+    }else
+    {
+    require_once("../seguro/datosBD.php");
+    borrarVenta($_REQUEST['codigo']);
+
+    header("location: ./mostrarVentas.php");
+    }
 function borrarVenta($id)
     {
 

@@ -14,8 +14,6 @@
     }
 
     
-
-    //y sino te llevo al login y exit
     
 ?>
 
@@ -34,7 +32,6 @@
             <h1>Tienda Online</h1>
             <a href="./modificarProductos.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
         </header>
-        
 
         <main class="mainModPerfil">
             <h2>Modificar Producto</h2>
@@ -53,48 +50,44 @@
 
             ?>    
 
-            <form action="<?php self();?>" method="post">
-                
-                <section>
-                    <label for="codigo">C. Producto</label>
-                    <input style="color: #c57485;" type="text" onfocus="this.blur()" name="codigo" id="codigo" readonly="readonly" value="<?php echo $datos[0] ?>">
-                </section>
+                <form action="<?php self();?>" method="post">
+                    
+                    <section>
+                        <label for="codigo">C. Producto</label>
+                        <input style="color: #c57485;" type="text" onfocus="this.blur()" name="codigo" id="codigo" readonly="readonly" value="<?php echo $datos[0] ?>">
+                    </section>
 
-                <section>
-                    <label for="descripcion">Descripción</label>
-                    <input type="text" name="descripcion" id="descripcion" value="<?php recordarGenerico("descripcion",$datos[1])?>">
+                    <section>
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" name="descripcion" id="descripcion" value="<?php recordarGenerico("descripcion",$datos[1])?>">
+                        <?php
+                            comprobarGenerico("descripcion");
+                        ?>
+                    </section>
+
+                    <section>
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio" id="precio" step="0.01" min="1" value="<?php recordarGenerico("precio",$datos[2])?>">
+                        
+                        <?php
+                            comprobarGenerico("precio");
+                        ?>
+                    </section>
+
+                    <section>
+                        <label for="stock">Stock</label>
+                        <input style="color: #c57485;" type="number" name="stock" id="stock" onfocus="this.blur()" readonly="readonly" value="<?php recordarGenerico("stock", $datos[3])?>">
+                        
+                    </section>
+                    
+                    <input type="submit" value="Modificar producto" name="modificarProducto">
+                        
+
+                    </form>
+
                     <?php
-                        comprobarGenerico("descripcion");
+                        }
                     ?>
-                </section>
-
-                <section>
-                    <label for="precio">Precio</label>
-                    <input type="number" name="precio" id="precio" step="0.01" min="1" value="<?php recordarGenerico("precio",$datos[2])?>">
-                    
-                    <?php
-                        comprobarGenerico("precio");
-                    ?>
-                </section>
-
-                <section>
-                    <label for="stock">Stock</label>
-                    <input style="color: #c57485;" type="number" name="stock" id="stock" onfocus="this.blur()" readonly="readonly" value="<?php recordarGenerico("stock", $datos[3])?>">
-                    
-                </section>
-                
-                <input type="submit" value="Modificar producto" name="modificarProducto">
-                    
-
-                </form>
-
-                <?php
-                    }
-                ?>
-
-
-
-
         </main>
 </body>
 </html>    
