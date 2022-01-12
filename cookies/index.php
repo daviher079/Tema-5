@@ -22,12 +22,16 @@
 
                 if(isset($_COOKIE['visitado']))
                 {
+                    $arrayProductosVisitados =$_COOKIE['visitado'];
                     $producto= VerProducto($_COOKIE['visitado']);
                 }
 
                 $array= buscaProductos();
 
             ?>
+
+
+
             <table class="table">
 
                 <thead>
@@ -39,6 +43,7 @@
                 <tbody>
 
                 <?php
+                
                     foreach ($array as $key => $value) {
                     echo "<tr>";
                     echo "<td>".$value['nombre']."</td>";
@@ -57,7 +62,10 @@
             <h3>Ultimas visitas</h3>
 
             <?php
+            if(isset($_COOKIE['visitado']))
+            {
                 echo "<h2>".$producto[0]."</h2>";
+            }
             ?>
         </div>
     </div>

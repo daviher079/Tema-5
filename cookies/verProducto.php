@@ -19,20 +19,33 @@
 
 <?php
     require_once("./funciones/funcionesBD.php");
-
     if(isset($_REQUEST['codigo']))
     {
-
-
+        
+        $arrayCookies=array();
+        
         if(!isset($_COOKIE['visitado']))
         {
             echo"No hay cookie";
-            setcookie("visitado",$_REQUEST['codigo'], time()+3600, "/");
+            array_unshift($arrayCookies, $_REQUEST['codigo']);
+
+            setcookie("visitado[0]",$_REQUEST['codigo'], time()+3600, "/");
 
         }else
         {
             //header("Location: index.php");
-            setcookie("visitado",$_REQUEST['codigo'], time()+3600, "/");
+
+            if(count($arrayCookies)==3)
+            {
+                array_pop($arrayCookies);
+                array_unshift($arrayCookies, $_REQUEST['codigo']);
+                setcookie("visitado[count($arrayCookies)]",$_REQUEST['codigo'], time()+3600, "/");
+            }else
+            {
+                array_unshift($arrayCookies, $_REQUEST['codigo']);
+                setcookie("visitado[count($arrayCookies)-1]",$_REQUEST['codigo'], time()+3600, "/");
+            }
+
         }
 
 
