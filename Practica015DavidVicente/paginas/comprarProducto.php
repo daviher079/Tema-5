@@ -1,3 +1,59 @@
+<?php
+
+
+
+if(isset($_REQUEST['codigo']))
+{
+    
+    if(!isset($_COOKIE['visitado']))
+    {
+        setcookie("visitado[0]",$_REQUEST['codigo'], time()+31536000, "/");
+
+    }else
+    {
+       //contar cuantas hay
+       $arrayProductosVisitados = $_COOKIE['visitado'];
+
+       $numero=count($arrayProductosVisitados);
+
+       if(!in_array($_REQUEST['codigo'], $arrayProductosVisitados))
+       {
+           if($numero<3)
+           {
+                array_unshift($arrayProductosVisitados, $_REQUEST['codigo']);
+
+                foreach ($arrayProductosVisitados as $key => $value) {
+                    setcookie('visitado['.$key.']',$value, time()+3600, "/");
+                }  
+           }else
+           {
+               //Ordenar poniendo el primero el ultimo codigo
+                array_unshift($arrayProductosVisitados, $_REQUEST['codigo']);
+                array_pop($arrayProductosVisitados);
+
+                foreach ($arrayProductosVisitados as $key => $value) {
+                    setcookie('visitado['.$key.']',$value, time()+3600, "/");
+                }
+           }
+       }
+    }
+
+
+    $array=VerProducto($_REQUEST['codigo']);
+
+
+    echo "<h1>".$array[0]."</h1>";
+    echo "<p>".$array[1]."</p>";
+    echo"<img src='".$array[2]."'/>";
+
+}
+else
+{
+    header("Location: index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

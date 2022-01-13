@@ -49,12 +49,8 @@
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.productos
-{
-    padding: 25px;
-    display: flex;
-    flex-wrap: wrap;
-}
+
+
 
 .mainProducto
 {
