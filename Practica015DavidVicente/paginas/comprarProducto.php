@@ -33,6 +33,8 @@ if(isset($_REQUEST['codigo']))
 
                 foreach ($arrayProductosVisitados as $key => $value) {
                     setcookie('visitado['.$key.']',$value, time()+31536000, "/");
+
+                    //setcookie($_SESSION['nombre'].'['.$numero.']',$codigo, time()+31536000, "/" );
                 }
            }
        }
@@ -54,6 +56,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
+    <script src="../script/recogerDeseoUsuario.js" ></script>
 
     <title>Comprar Producto</title>
 </head>
@@ -78,9 +81,6 @@ else
                 echo "<a href='./indexPerfil.php'><img src='../web-root/img/userPR15-01.png' height='50px'></a>";
             }
 
-
-          
-            
         ?>
     </header>
     <main class="mainProducto">
@@ -104,19 +104,31 @@ else
                     //funcion que genera una compra
 
                     header("location: ./indexPerfil.php");
-    
                 }
 
-                    
             }
             else
             {
 
     ?>
 
-        <div class="datosProducto">
+<div class="datosProducto">
+
+            <?php
+                if(validaSession()==true)
+                {
+                
+            ?>    
+                <section>
+                    <label for="deseo">Añadir a la lista de deseos</label>
+                    <input type="checkbox" name="deseo" id="deseo">
+                </section>
+            <?php
+                }
+            ?>
+
             <form action="<?php self();?>" method="post">
-            <input type="hidden" name="codigo" value="<?php echo $_REQUEST['codigo'];?>">
+            <input type="hidden" name="codigo" id ="codigo" value="<?php echo $_REQUEST['codigo'];?>">
             <input type="hidden" name="stock" value="<?php echo $_REQUEST['stock'];?>">
             <input type="hidden" name="precio" value="<?php echo $_REQUEST['precio'];?>">
             
@@ -133,10 +145,6 @@ else
                     ?>
                 </section>
 
-                <section>
-                    <label for="deseo">Añadir a la lista de deseos</label>
-                    <input type="checkbox" name="deseo" id="deseo">
-                </section>
 
                 <section>
                     <input type="submit" value="Comprar" name="comprarProducto">

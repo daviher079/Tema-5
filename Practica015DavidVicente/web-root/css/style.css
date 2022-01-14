@@ -50,8 +50,6 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-
-
 .mainProducto
 {
     padding: 40px;
@@ -62,19 +60,29 @@
 .imgProducto
 {
     border-radius: 25px;
-    width: 550px;
+    width: 575px;
     margin: 0px 50px 50px 0px;
 }
 
 .datosProducto
 {
     width: 300px;
-    height: 250px;
+    height: 325px;
     border: 3px solid #d02b4d;  
     border-radius: 25px;
     padding: 20px;
 }
 
+.datosProducto section label
+{
+    width: 230px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    float: left;
+    text-align: left;
+    padding: 2px;
+    margin-bottom: 40px;
+    color: #d02b4d;
+}
 
 .datosProducto form h1
 {
@@ -101,8 +109,6 @@
     padding: 2px;
     color: #d02b4d;
 }
-
-
 
 .datosProducto form input[type='number']
 {
