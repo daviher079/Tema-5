@@ -23,7 +23,7 @@ if(isset($_REQUEST['codigo']))
                 array_unshift($arrayProductosVisitados, $_REQUEST['codigo']);
 
                 foreach ($arrayProductosVisitados as $key => $value) {
-                    setcookie('visitado['.$key.']',$value, time()+3600, "/");
+                    setcookie('visitado['.$key.']',$value, time()+31536000, "/");
                 }  
            }else
            {
@@ -32,19 +32,11 @@ if(isset($_REQUEST['codigo']))
                 array_pop($arrayProductosVisitados);
 
                 foreach ($arrayProductosVisitados as $key => $value) {
-                    setcookie('visitado['.$key.']',$value, time()+3600, "/");
+                    setcookie('visitado['.$key.']',$value, time()+31536000, "/");
                 }
            }
        }
     }
-
-
-    $array=VerProducto($_REQUEST['codigo']);
-
-
-    echo "<h1>".$array[0]."</h1>";
-    echo "<p>".$array[1]."</p>";
-    echo"<img src='".$array[2]."'/>";
 
 }
 else
@@ -139,6 +131,11 @@ else
                         //Se comprueba que el input no esté vacio
                         comprobarCantidad();
                     ?>
+                </section>
+
+                <section>
+                    <label for="deseo">Añadir a la lista de deseos</label>
+                    <input type="checkbox" name="deseo" id="deseo">
                 </section>
 
                 <section>

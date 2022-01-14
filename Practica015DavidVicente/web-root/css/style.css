@@ -123,7 +123,7 @@
     border-style: none;
     font-size: 1.05em;
     float: inherit;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .loginSesiones
@@ -465,4 +465,54 @@ aside h2
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.9em;
     margin-bottom: 25px;
+}
+
+
+.container
+{
+    display: flex;
+}
+
+.productos
+{
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    width: 70%;
+}
+
+.visitas
+{
+    float: right;
+    width: 30%;  
+    padding: 25px;
+}
+
+.visitas h2
+{
+    color: #d02b4d;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.9em;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.visitas ul
+{
+    list-style: none;
+}
+
+.visitas ul li
+{
+    margin-bottom: 10px;
+}
+
+.visitas .prVisitado
+{
+    color: #d02b4d;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1em;
+    display: inline-block;
+    text-decoration: none;
 }

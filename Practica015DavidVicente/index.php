@@ -8,34 +8,7 @@
     <link rel="stylesheet" href="./web-root/css/style.css"/>
 
     <style>
-        .container
-        {
-            display: flex;
-        }
-
-        .productos
-        {
-            padding: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            float: left;
-            width: 70%;
-        }
-
-        .visitas
-        {
-            float: right;
-            width: 30%;  
-            padding: 25px;
-        }
-
-        .visitas h2
-        {
-            color: #d02b4d;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 1.9em;
-            display: inline-block;
-        }
+        
 
     </style>
 
@@ -87,14 +60,30 @@
 
             <div class="visitas">
                 <h2>Ultimas Visitas</h2>
+                <?php
+                    if(isset($_COOKIE['visitado']))
+                    {
+                        $arrayProductosVisitados = $_COOKIE['visitado'];
+                        echo "<ul>";
+                        foreach ($arrayProductosVisitados as $key => $value) {
+                    
+                            $arrayDatosProducto=VerProducto($value);
+                            echo  "<li><a class='prVisitado' href='./paginas/comprarProducto.php?codigo=".$arrayDatosProducto[0].
+                        "&descripcion=".$arrayDatosProducto[1]."&precio=".$arrayDatosProducto[2].
+                        "&stock=".$arrayDatosProducto[3]."'>".$arrayDatosProducto[1]."</a></li>";
+        
+                        }
+                        echo "</ul>";
+                    }
+                ?>
             </div>
         </div>
     </main>
         
 
-    <!--<footer>
+    <footer>
         <p>Footer de David</p>
         <a href="../index.html"><img src="./web-root/img/volver.png" height="20px"></a>
-    </footer>-->
+    </footer>
 </body>
 </html>
