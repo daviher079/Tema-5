@@ -18,7 +18,7 @@ function ajax() {
 function enviar() {
     if (miXHR) {
         //Si existe el objeto miXHR
-        var url = '../paginas/validarListadeDeseos.php';
+        var url = './validarListadeDeseos.php';
 
         miXHR.open('POST', url, true); 
         //Abrimos la url, true=ASINCRONA
@@ -30,11 +30,14 @@ function enviar() {
         var boton = document.getElementById("deseo");
         if(boton.checked==true)
         {
-            miXHR.send("codigo = " + codigo+"&accion=true");
+            var accion = true
+            miXHR.send("?codigo = "+codigo+"&accion="+accion);
 
         }else
         {
-            miXHR.send("codigo = " + codigo+"&accion=false");
+            var accion =false;
+
+            miXHR.send("?codigo = "+codigo+"&accion="+accion);
         }
 
     }
@@ -45,6 +48,7 @@ function estadoPeticion() {
     if(this.readyState == 4) {
             if (this.status == 200) {            
                 document.getElementById("deseo").checked = true;
+                console.log(this.responseText);
             }           
     }
 }

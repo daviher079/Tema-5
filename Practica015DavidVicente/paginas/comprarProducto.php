@@ -43,7 +43,7 @@ if(isset($_REQUEST['codigo']))
 }
 else
 {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 ?>
@@ -56,7 +56,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
-    <script src="../script/recogerDeseoUsuario.js" ></script>
+    <script src="./recogerDeseoUsuario.js" ></script>
 
     <title>Comprar Producto</title>
 </head>

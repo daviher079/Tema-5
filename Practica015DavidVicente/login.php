@@ -1,14 +1,19 @@
 <?php
-    //llamar a verifica sesion
-    //validamos el formulario y ponemos los errores validar el perfil de ese usuariio
 
-    require_once "./codigo/validaSesion.php";
-   
-    session_start();
+require("./seguro/datosBD.php");
+            require("./codigo/consultas.php");
+            require("./codigo/Funciones.php");
 
-    if(validaSession())
+    if(isset($_COOKIE['recuerdame']))
     {
-        header("Location: ./paginas/mostrarProductos.php");
+        $user=$_COOKIE['recuerdame'][0];
+        $pass=$_COOKIE['recuerdame'][1];
+
+        if(recuperarDatos($user, $pass)==true)
+        {
+            header("Location: ./paginas/indexPerfil.php");
+
+        }
     }
 
 ?>
@@ -32,16 +37,14 @@
     </header>
     <main class="loginSesiones">
         <?php
-            require("./seguro/datosBD.php");
-            require("./codigo/consultas.php");
-            require("./codigo/Funciones.php");
+            
 
             crearFormulario();
             
             if(valida())
             {
                 //inicio session
-        
+                recuerdame();
                 header("Location: ./paginas/indexPerfil.php");
                 exit;
             }else
@@ -62,6 +65,9 @@
 
             <section>
                 <label for="pass">Password</label><input type="password" name="pass" id="pass">
+            </section>
+            <section>
+                <label for="recordarme">Recordarme</label> <input type="checkbox" name="recordarme" id="recordarme">
             </section>
             
             <input type="submit" value="Crear cuenta" name="crearCuenta">

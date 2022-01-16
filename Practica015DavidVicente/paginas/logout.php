@@ -33,6 +33,8 @@
     <main class="logout">
         <?php
             session_destroy();
+            setcookie('recuerdame[0]',$_COOKIE['recuerdame'][0], time()-31536000, "/" );
+            setcookie('recuerdame[1]',$_COOKIE['recuerdame'][1], time()-31536000, "/" );
         ?>
         <section>
             <h1>Ha cerrado la sesión</h1>
