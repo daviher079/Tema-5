@@ -31,13 +31,13 @@ function enviar() {
         if(boton.checked==true)
         {
             var accion = true
-            miXHR.send("?codigo = "+codigo+"&accion="+accion);
+            miXHR.send("codigo="+codigo+"&accion="+accion);
 
         }else
         {
             var accion =false;
 
-            miXHR.send("?codigo = "+codigo+"&accion="+accion);
+            miXHR.send("codigo="+codigo+"&accion="+accion);
         }
 
     }

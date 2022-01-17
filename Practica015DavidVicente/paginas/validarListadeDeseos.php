@@ -4,7 +4,7 @@
 if(isset($_POST['accion']))
     {
 
-        if($_POST['accion']==true)
+        if($_POST['accion']=="true")
         {
             addDeseo($_POST['codigo']);
         }else
