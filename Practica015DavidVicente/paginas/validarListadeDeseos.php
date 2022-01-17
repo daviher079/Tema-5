@@ -18,20 +18,23 @@ function addDeseo()
 {
     if(isset($_POST['codigo']))
     {
-
+        session_start();
         $codigo = $_POST['codigo'];
-        $nombre = $_SESSION['nombre'];
+        $usuario = $_SESSION['usuario'];
 
-        if(!isset($_COOKIE[$nombre]))
+        if(!isset($_COOKIE[$usuario]))
         {
-            setcookie($nombre.'[0]',$codigo, time()+31536000, "/" );
+            setcookie($usuario.'[0]',$codigo, time()+31536000, "/" );
+            //setcookie('visitado['.$key.']',$value, time()+31536000, "/");
+            $prueba =0;
+            echo $prueba;
         }else
         {
-            $arrayDeseos=$_COOKIE[$nombre];
+            $arrayDeseos=$_COOKIE[$usuario];
             array_unshift($arrayDeseos, $codigo);
 
             foreach ($arrayDeseos as $key => $value) {
-                setcookie($nombre.'['.$key.']',$value, time()+31536000, "/" );
+                setcookie($usuario.'['.$key.']',$value, time()+31536000, "/" );
             }
 
         }
@@ -42,15 +45,16 @@ function deleteDeseo()
 {
     if(isset($_POST['codigo']))
     {
+        session_start();
         $codigo = $_POST['codigo'];
-        $nombre = $_SESSION['nombre'];
-        $arrayDeseos=$_COOKIE[$nombre];
+        $usuario = $_SESSION['usuario'];
+        $arrayDeseos=$_COOKIE[$usuario];
         if(in_array($codigo, $arrayDeseos))
         {
             foreach ($arrayDeseos as $key => $value) {
                 if($codigo==$value)
                 {
-                    setcookie($nombre.'['.$key.']',$value, time()-31536000, "/" );
+                    setcookie($usuario.'['.$key.']',$value, time()-31536000, "/" );
                 }
             }
         }
@@ -64,6 +68,64 @@ function deleteDeseo()
 
 //Si es false buscar en que posicion del array y borrarlo
 
+require_once("../seguro/datosBD.php");
+
+function VerProducto($codigo)
+{
+
+    try{
+        $array=array();
+        $con= new PDO("mysql:host=".IP.";dbname=".BBDD,USER,PASS);
+        $con -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $sql=$con->prepare("select * from productos where codigoProducto =:codigo");
+            
+            $sql->bindParam(":codigo", $codigo);
+            $sql->execute();
+
+            if($sql->rowCount()==1)
+            {
+                $row=$sql->fetch();
+                array_push($array, $row['codigoProducto'], $row['descripcion'], $row['precio'], $row['stock']);
+            }
+
+
+
+    
+    }catch(PDOException $ex)
+    {
+        $numError = $ex->getCode();
+
+        // Error al no reconocer la BBDD
+        if($numError == 1049)
+        {
+            echo "<p>No se reconoce la BBDD.</p>";
+            
+        }
+        
+        // Si no existe la tabla... (nº error = 1146)
+        if($numError == 1146)
+        {
+            echo "<p>La tabla no existe.</p>";
+        }
+        
+        // Error al conectar con el servidor...
+        else if($numError == 2002)
+        {
+            echo "<p>Error al conectar con el servidor.</p>";
+        }
+        // Error de autenticación...
+        else if($numError == 1045)
+        {
+            echo "<p>Error en la autenticación.</p>";
+        }
+    }
+    finally
+    {
+        return $array;
+        unset($con);
+    }
+}
 
 
 

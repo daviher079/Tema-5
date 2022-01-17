@@ -1,9 +1,11 @@
 window.addEventListener("load", iniciar);
+var accion = false;
 
 //objeto de Ajax
 var miXHR;
 function iniciar() {
 	var boton = document.getElementById("deseo");
+    //boton.checked=localStorage.getItem('accion');
     boton.addEventListener("click", ajax, false);
     //false no puede llamar a un evento dentro 
 }
@@ -30,13 +32,14 @@ function enviar() {
         var boton = document.getElementById("deseo");
         if(boton.checked==true)
         {
-            var accion = true
+            accion=true
             miXHR.send("codigo="+codigo+"&accion="+accion);
+            localStorage.setItem('accion', accion);
 
         }else
         {
-            var accion =false;
-
+            accion =false;
+            localStorage.setItem('accion', accion);
             miXHR.send("codigo="+codigo+"&accion="+accion);
         }
 
@@ -48,7 +51,6 @@ function estadoPeticion() {
     if(this.readyState == 4) {
             if (this.status == 200) {            
                 document.getElementById("deseo").checked = true;
-                console.log(this.responseText);
-            }           
+            }          
     }
 }
