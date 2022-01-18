@@ -30,16 +30,21 @@
     <body>
         <header class="cabecera">
             <h1>Tienda Online</h1>
-            <a href="./indexPerfil.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            <div class='user'>
+            <?php
+                echo "<h2>".$_SESSION['nombre']."</h2>";
+            ?>    
+                <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            </div>
         </header>
 
         <div style="display: flex;">
 
             <aside>
-                <h2>Insertar producto</h2>
+                
 
             <?php
-                echo "<h1>".$_SESSION['nombre']."</h1>";
+                
                 echo"<ul>";
                 /**
                  * Se recorren las páginas a las que puede acceder al usuario
@@ -53,7 +58,7 @@
 
             <main class="mainModPerfil">
                 <h2>Insertar Producto</h2>
-                <h4><?php echo $_SESSION['nombre'] ?></h4>
+                
 
                 <?php
 

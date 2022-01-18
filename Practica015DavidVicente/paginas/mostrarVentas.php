@@ -30,30 +30,34 @@
     <body>
         <header class="cabecera">
         <h1>Tienda Online</h1>
-        <a href="./indexPerfil.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+        <div class='user'>
+            <?php
+                echo "<h2>".$_SESSION['nombre']."</h2>";
+            ?>    
+                <a href="./indexPerfil.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            </div>
         </header>
 
         <div style="display: flex;">
 
             <aside>
-                <h2>Mostrar ventas</h2>
-
-            <?php
-                echo "<h1>".$_SESSION['nombre']."</h1>";
+                
+                <?php
+                
                 echo"<ul>";
                 /**
                  * Se recorren las páginas a las que puede acceder al usuario
                  */
-                    foreach ($_SESSION['paginas'] as $key => $value) {
-                        echo" <li><a class='boton' href='./".$value."'>".$key."</a> </li>";
-                    }
+                foreach ($_SESSION['paginas'] as $key => $value) {
+                    echo" <li><a class='boton' href='./".$value."'>".$key."</a> </li>";
+                }
                 echo "</ul>";    
-            ?>
+                ?>
             </aside>  
-
+            
             <main class="mainModPerfil">
                 
-                <h4><?php echo $_SESSION['nombre'] ?></h4>
+                <h2>Mostrar ventas</h2>
             <?php
                 require_once("./validarModificarVentas.php");
                 

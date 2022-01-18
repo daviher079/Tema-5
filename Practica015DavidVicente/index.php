@@ -24,13 +24,16 @@
             
             session_start();
         
+            echo "<div class='user'>";
             if(validaSession()==false)
             {
                 echo "<a href='./login.php'><img src='./web-root/img/userPR15-01.png' height='50px'></a>";
             }else
             {
+                echo "<h2>".$_SESSION['nombre']."</h2>";
                 echo "<a href='./paginas/indexPerfil.php'><img src='./web-root/img/userPR15-01.png' height='50px'></a>";
             }
+            echo "</div>";
         
             
             

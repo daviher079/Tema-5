@@ -26,14 +26,19 @@
 </head>
 <body>
     <header class="cabecera">
-       <h1>Tienda Online</h1>
-       <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+        <h1>Tienda Online</h1>
+        <div class='user'>
+        <?php
+            echo "<h2>".$_SESSION['nombre']."</h2>";
+        ?>    
+            <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+        </div>
     </header>
     
     <aside>
 
         <?php
-            echo "<h1>".$_SESSION['nombre']."</h1>";
+            
             echo"<ul>";
             /**
              * Se recorren las páginas a las que puede acceder al usuario

@@ -57,7 +57,7 @@ else
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
     <script src="./recogerDeseoUsuario.js" ></script>
-
+   
     <title>Comprar Producto</title>
 </head>
 <body>
@@ -72,14 +72,16 @@ else
             require_once "../codigo/validaSesion.php";
             
             session_start();
-            
+            echo "<div class='user'>";
             if(validaSession()==false)
             {
                 echo "<a href='../login.php'><img src='../web-root/img/userPR15-01.png' height='50px'></a>";
             }else
             {
+                echo "<h2>".$_SESSION['nombre']."</h2>";
                 echo "<a href='./indexPerfil.php'><img src='../web-root/img/userPR15-01.png' height='50px'></a>";
             }
+            echo "</div>";
 
         ?>
     </header>

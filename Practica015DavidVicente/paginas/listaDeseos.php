@@ -22,25 +22,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="../web-root/css/style.css"/>
-    <title>Modificar Perfil</title>
+    <title>Lista de Deseos</title>
 
-    <style>
-        
-    </style>
 </head>
 <body>
     <header class="cabecera">
        <h1>Tienda Online</h1>
-       <a href="./indexPerfil.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+       <div class='user'>
+            <?php
+                echo "<h2>".$_SESSION['nombre']."</h2>";
+            ?>    
+                <a href="../index.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+        </div>
     </header>
     
     <div style="display: flex;">
 
         <aside>
-            <h2>Modificar perfil</h2>
+            
 
         <?php
-            echo "<h1>".$_SESSION['nombre']."</h1>";
+            
             echo"<ul>";
             /**
              * Se recorren las páginas a las que puede acceder al usuario
@@ -57,15 +59,23 @@
             //session_start();
             $usuario= $_SESSION['usuario'];
 
-            foreach ($_COOKIE[$usuario] as $key => $value) {
-                $producto=VerProducto($value);
-                
-
-                echo "<a class='enlaces' href='./comprarProducto.php?codigo=".$producto[0].
-                        "&descripcion=".$producto[1]."&precio=".$producto[2].
-                        "&stock=".$producto[3]."'><div class='producto'>".
-                        $producto[1]."</div></a>";
+            if(!isset($_COOKIE[$usuario]))
+            {
+                echo "<h2>No hay productos añadidos a la lista de deseos</h2>";
+            }else
+            {
+                foreach ($_COOKIE[$usuario] as $key => $value) {
+                    $producto=VerProducto($value);
+                    
+    
+                    echo "<a class='enlaces' href='./comprarProducto.php?codigo=".$producto[0].
+                            "&descripcion=".$producto[1]."&precio=".$producto[2].
+                            "&stock=".$producto[3]."'><div class='producto'>".
+                            $producto[1]."</div></a>";
+                }
             }
+
+            
 
 
     

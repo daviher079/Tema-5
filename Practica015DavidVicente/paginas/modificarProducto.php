@@ -30,12 +30,17 @@
     <body>
         <header class="cabecera">
             <h1>Tienda Online</h1>
-            <a href="./modificarProductos.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            <div class='user'>
+            <?php
+                echo "<h2>".$_SESSION['nombre']."</h2>";
+            ?>    
+                <a href="./indexPerfil.php"><img src="../web-root/img/userPR15-01.png" height="50px"></a>
+            </div>
         </header>
 
         <main class="mainModPerfil">
             <h2>Modificar Producto</h2>
-            <h4><?php echo $_SESSION['nombre'] ?></h4>
+            
             <?php
 
                 require_once("./validarModProducto.php");

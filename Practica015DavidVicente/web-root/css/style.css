@@ -15,9 +15,21 @@
     display: inline-block;
 }
 
-.cabecera a 
+.user
 {
     float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user h2
+{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-right: 25px;
 }
 
 .fondo
@@ -288,6 +300,7 @@ aside h1
 
 aside ul
 {
+    margin-top: 25px;
     list-style: none;
 }
 aside ul li

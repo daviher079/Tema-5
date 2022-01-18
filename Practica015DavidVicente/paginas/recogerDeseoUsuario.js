@@ -1,12 +1,20 @@
 window.addEventListener("load", iniciar);
 var accion = false;
-
 //objeto de Ajax
 var miXHR;
 function iniciar() {
+    var codigo = document.getElementById("codigo").value;
 	var boton = document.getElementById("deseo");
     //boton.checked=localStorage.getItem('accion');
     boton.addEventListener("click", ajax, false);
+    if(localStorage.getItem(codigo)===null)
+    {
+        document.getElementById("deseo").checked = false;
+    }else
+    {
+        document.getElementById("deseo").checked = true;
+    }
+
     //false no puede llamar a un evento dentro 
 }
 
@@ -28,19 +36,19 @@ function enviar() {
         // En cada cambio de estado(readyState) se llamará a la función estadoPeticion
         miXHR.onreadystatechange = estadoPeticion;
         miXHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        var codigo = document.getElementById("codigo").value
+        var codigo = document.getElementById("codigo").value;
         var boton = document.getElementById("deseo");
         if(boton.checked==true)
         {
             accion=true
             miXHR.send("codigo="+codigo+"&accion="+accion);
-            localStorage.setItem('accion', accion);
+            localStorage.setItem(codigo, codigo);
 
         }else
         {
             accion =false;
-            localStorage.setItem('accion', accion);
             miXHR.send("codigo="+codigo+"&accion="+accion);
+            localStorage.removeItem(codigo);
         }
 
     }
@@ -49,8 +57,18 @@ function enviar() {
 
 function estadoPeticion() {
     if(this.readyState == 4) {
-            if (this.status == 200) {            
-                document.getElementById("deseo").checked = true;
+            if (this.status == 200) {
+                var codigo = document.getElementById("codigo").value;  
+                if(localStorage.getItem(codigo)===null)
+                {
+                    document.getElementById("deseo").checked = false;
+                }else
+                {
+                    document.getElementById("deseo").checked = true;
+                }
+                
             }          
     }
 }
+
+
