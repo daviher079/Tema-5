@@ -5,14 +5,15 @@ var miXHR;
 function iniciar() {
     var codigo = document.getElementById("codigo").value;
 	var boton = document.getElementById("deseo");
-    //boton.checked=localStorage.getItem('accion');
     boton.addEventListener("click", ajax, false);
     if(localStorage.getItem(codigo)===null)
     {
         document.getElementById("deseo").checked = false;
+        document.getElementById("imagen").src="../web-root/img/amor-01.png"
     }else
     {
         document.getElementById("deseo").checked = true;
+        document.getElementById("imagen").src="../web-root/img/corazon.png";
     }
 
     //false no puede llamar a un evento dentro 
@@ -43,12 +44,13 @@ function enviar() {
             accion=true
             miXHR.send("codigo="+codigo+"&accion="+accion);
             localStorage.setItem(codigo, codigo);
-
+            document.getElementById("imagen").src="../web-root/img/corazon.png";
         }else
         {
             accion =false;
             miXHR.send("codigo="+codigo+"&accion="+accion);
             localStorage.removeItem(codigo);
+            document.getElementById("imagen").src="../web-root/img/amor-01.png"
         }
 
     }
@@ -62,9 +64,11 @@ function estadoPeticion() {
                 if(localStorage.getItem(codigo)===null)
                 {
                     document.getElementById("deseo").checked = false;
+                    document.getElementById("imagen").src="../web-root/img/amor-01.png"
                 }else
                 {
                     document.getElementById("deseo").checked = true;
+                    document.getElementById("imagen").src="../web-root/img/corazon.png";
                 }
                 
             }          
