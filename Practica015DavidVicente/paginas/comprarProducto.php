@@ -122,6 +122,7 @@ else
                 
             ?>    
                 <section>
+                    <!-- Primero el input <label for ="id"><img/></label> el input hay que ponerlo en hidden -->
                     <label for="deseo">Añadir a la lista de deseos</label>
                     <input type="checkbox" name="deseo" id="deseo">
                 </section>
