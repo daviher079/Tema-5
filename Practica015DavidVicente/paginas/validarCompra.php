@@ -106,9 +106,9 @@ require_once "../seguro/datosBD.php";
             $user = $_SESSION["usuario"];
             $fecha = date ('Y-m-d', time());
             $codigo = $_REQUEST['codigo'];
-            $cantidad = (int)$_REQUEST['cantidad'];
+            $cantidad = (int)$_REQUEST['nProductos'];
             $precioTotal = (float)$_REQUEST['precio'] * $cantidad;
-            $stockFinal = (int)$_REQUEST['stock'] - (int)$_REQUEST['cantidad'];
+            $stockFinal = (int)$_REQUEST['stock'] - $cantidad;
 
             $con= new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

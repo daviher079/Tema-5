@@ -1,3 +1,19 @@
+<?php
+    require_once "../codigo/validaSesion.php";
+    
+    //Comprobar que hay sesion
+    
+    session_start();
+
+    if(validaSession()==false)
+    {
+        header("location: ./403.php");
+    }
+
+    //y sino te llevo al login y exit
+    
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +24,12 @@
     <link rel="stylesheet" href="../web-root/css/style.css"/>
     <script src="./recogerDeseoUsuario.js" ></script>
    
-    
+    <style>
+        form section
+        {
+            margin-bottom: 37px;
+        }
+    </style>
     <title>Finalizar Compra</title>
 </head>
 <body>
@@ -20,9 +41,7 @@
              * compra si ha sido iniciada la compra se efecturá sino
              * se irá a la pantalla de login
              */
-            require_once "../codigo/validaSesion.php";
-            
-            session_start();
+
             echo "<div class='user'>";
             if(validaSession()==false)
             {
@@ -42,23 +61,13 @@
         <?php
             
             require_once("./validarCompra.php");
-            if(validarCompra()==true)
+            if(isset($_REQUEST['finalizarCompra']))
             {
-                //si la compra es correcta se comprueba si la sesion ha
-                //ya ha sido validada si ha sido validada se genera la venta
-                //sino te lleva login
+                
+                generarVenta();
+                //funcion que genera una compra
 
-                if(comprobarSesion()==false)
-                {
-                    header("location: ../login.php");
-
-                }else
-                {
-                    generarVenta();
-                    //funcion que genera una compra
-
-                    header("location: ./indexPerfil.php");
-                }
+                header("location: ./indexPerfil.php");
 
             }
             else
@@ -69,27 +78,30 @@
     <div class="datosProducto">
 
             <form action="<?php self();?>" method="post">
-            <?php echo $_REQUEST['codigo'];?>
-            <?php echo $_REQUEST['stock'];?>
-            <?php echo $_REQUEST['precio'];?>
-            <?php echo $_REQUEST['unidades'];?>
+                <input type="hidden" name="codigo" id ="codigo" value="<?php echo $_REQUEST['codigo'];?>">
+                <input type="hidden" name="stock" id="stock" value="<?php echo $_REQUEST['stock'];?>">
             
             <?php 
+
+                $precioFinal = (float) $_REQUEST['precio'] * (int) $_REQUEST['unidades'];
                 echo "<h1>".$_REQUEST['descripcion']."</h1>"; 
-                echo "<h2>".$_REQUEST['precio']."€</h2>";
+                
             ?>
-                <section>
-                    <label for="nProductos">Nº unidades</label>
-                    <input type="number" name="cantidad" id="nProductos"  min="1" value="1">
-                    <?php
-                        //Se comprueba que el input no esté vacio
-                        comprobarCantidad();
-                    ?>
-                </section>
+
+            <section style=" width:240px">
+                <label for="precioFinal">Precio Final</label>
+                <input style="color: #c57485; width:80px;" type="text" onfocus="this.blur()" name="precioFinal" id="precioFinal" readonly="readonly" value="<?php echo $precioFinal ?>">
+            </section>
+
+            <section style=" width:240px">
+                <label for="nProductos" >Nº unidades</label>
+                <input style="color: #c57485; width:80px;" type="text" onfocus="this.blur()" name="nProductos" id="nProductos" readonly="readonly" value="<?php echo $_REQUEST['unidades'] ?>">
+                
+            </section>
 
 
                 <section>
-                    <input type="submit" value="Finalizar Comprar" name="comprarProducto">
+                    <input type="submit" value="Finalizar Comprar" name="finalizarCompra">
                 </section>
             </form>
         </div>

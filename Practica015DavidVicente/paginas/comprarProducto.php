@@ -128,12 +128,9 @@ else
                 
             ?>    
                 <section>
-<<<<<<< HEAD
-                    <!-- Primero el input <label for ="id"><img/></label> el input hay que ponerlo en hidden -->
-                    <label for="deseo">Añadir a la lista de deseos</label>
-=======
+
                     <label for="deseo">Añadir a la lista de deseos <img id="imagen" src="../web-root/img/amor-01.png" height="18px"></label>
->>>>>>> eb925e4472afda171b817cd0e27a4f76559e761a
+
                     <input type="checkbox" name="deseo" id="deseo">
                 </section>
             <?php
@@ -160,7 +157,7 @@ else
 
 
                 <section>
-                    <input type="submit" value="Comprar" name="comprarProducto">
+                    <input type="submit" value="Comprar Producto" name="comprarProducto">
                 </section>
             </form>
         </div>

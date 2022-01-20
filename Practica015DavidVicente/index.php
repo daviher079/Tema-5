@@ -48,11 +48,30 @@
                     $array=mostrarProductos();
                     
                     foreach ($array as $key => $value) {
-                        
-                        echo "<a class='enlaces' href='./paginas/comprarProducto.php?codigo=".$key.
-                        "&descripcion=".$value['descripcion']."&precio=".$value['precio'].
-                        "&stock=".$value['stock']."'><div class='producto'>".$value['precio']."€</br>".
-                        $value['descripcion']."</div></a>";
+                        if($value['imagenBaja']!="")
+                        {
+                            echo "<a class='enlaces' href='./paginas/comprarProducto.php?codigo=".$key.
+                            "&descripcion=".$value['descripcion']."&precio=".$value['precio'].
+                            "&stock=".$value['stock']."'>
+                                <div class='producto' style='background-image: url(./web-root/imgBaja/".$value['imagenBaja'].");height: 100;'>". 
+                                    $value['precio']."€</br>".
+                                    $value['descripcion']."
+                                </div>
+                            </a>";
+                        }else
+                        {
+                            echo "<a class='enlaces' href='./paginas/comprarProducto.php?codigo=".$key.
+                            "&descripcion=".$value['descripcion']."&precio=".$value['precio'].
+                            "&stock=".$value['stock']."'>
+                                <div class='producto'>". 
+                                    $value['precio']."€</br>".
+                                    $value['descripcion']."
+                                </div>
+                            </a>";
+
+                        }
+                        //style="background-image: url('/assets/img/fondo-cabecera.jpg'); width: 100; height: 100; "
+                    
                     }
                 ?>
             </div>

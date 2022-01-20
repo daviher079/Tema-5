@@ -38,7 +38,9 @@ create table productos (
 	codigoProducto char(5) primary key,
 	descripcion varchar(30),
 	precio decimal(5,2) not null,
-	stock integer not null
+	stock integer not null,
+	imagenAlta char(60),
+	imagenBaja char(80) 
 ) engine=innodb;
 
 create table venta (
@@ -101,10 +103,11 @@ insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG01');
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG02');
 insert into accede (codigoPerfil,codigoPagina) values ('USR01','PAG03');
 
-insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO01','Camisa de Rayas', 55.23, 40);
-insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO02','Camiseta azul', 23.45, 22);
-insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO03','Abrigo verde', 110.32, 60);
-insert into productos (codigoProducto, descripcion, precio, stock) values ('PRO04','Pantalones vaqueros', 60.30, 78);
+insert into productos (codigoProducto, descripcion, precio, stock, imagenAlta, imagenBaja) values ('PRO01','Camisa de Rayas', 55.23, 40, 'imagen01.png', 'imagen01Baja.png');
+insert into productos (codigoProducto, descripcion, precio, stock, imagenAlta, imagenBaja) values ('PRO02','Camiseta azul', 23.45, 22, 'imagen02.png', 'imagen02Baja.png');
+insert into productos (codigoProducto, descripcion, precio, stock, imagenAlta, imagenBaja) values ('PRO03','Abrigo verde', 110.32, 60, 'imagen03.png', 'imagen03Baja.png');
+insert into productos (codigoProducto, descripcion, precio, stock, imagenAlta, imagenBaja) values ('PRO04','Pantalones vaqueros', 60.30, 78, 'imagen04.png', 'imagen04Baja.png');
+insert into productos (codigoProducto, descripcion, precio, stock, imagenAlta, imagenBaja) values ('PRO05','Zapatillas Moradas', 100.45, 60, 'imagen05.png', 'imagen05Baja.png');
 
 
 

@@ -79,6 +79,8 @@ function mostrarProductos()
             $arrayProductos[$row[0]]['descripcion']=$row[1];
             $arrayProductos[$row[0]]['precio']=$row[2];
             $arrayProductos[$row[0]]['stock']=$row[3];
+            $arrayProductos[$row[0]]['imagenAlta']=$row[4];
+            $arrayProductos[$row[0]]['imagenBaja']=$row[5];
         }
 
     }
