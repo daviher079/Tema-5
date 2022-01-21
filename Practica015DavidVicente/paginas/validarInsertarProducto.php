@@ -32,15 +32,17 @@
             $con= new PDO("mysql:host=".IP.";dbname=".BBDD, USER, PASS);
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            $preparada=$con->prepare("insert into productos values(?,?,?,?)");
+            $preparada=$con->prepare("insert into productos values(?,?,?,?,?,?)");
             
             $con->beginTransaction(); 
             $codigo = $_REQUEST['codigo'];
             $descripcion = $_REQUEST['descripcion'];
             $precio = (float)$_REQUEST['precio']; 
             $stock = (int)$_REQUEST['stock'];
+            $imagenAlta="";
+            $imagenBaja="";
 
-            $arrayInsert=array($codigo, $descripcion, $precio, $stock);
+            $arrayInsert=array($codigo, $descripcion, $precio, $stock, $imagenAlta, $imagenBaja);
             $preparada->execute($arrayInsert);
             $con->commit();
             

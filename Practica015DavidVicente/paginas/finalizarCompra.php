@@ -56,7 +56,17 @@
         ?>
     </header>
     <main class="mainProducto">
-        <img class ="imgProducto" src="../web-root/img/store-window-g05f275403_1920.jpg" >
+    <?php
+            $cadena="../web-root/";
+                if(isset($_REQUEST['imagen']))
+                {
+                    $cadena = $cadena."imgProductosGrandes/".$_REQUEST['imagen'];
+                }else
+                {
+                    $cadena = $cadena."img/store-window-g05f275403_1920.jpg";
+                }
+            ?>
+        <img class ="imgProducto" src=<?php echo $cadena ?> >
         
         <?php
             

@@ -92,7 +92,17 @@ else
         ?>
     </header>
     <main class="mainProducto">
-        <img class ="imgProducto" src="../web-root/img/store-window-g05f275403_1920.jpg" >
+            <?php
+            $cadena="../web-root/";
+                if(isset($_REQUEST['imagen']))
+                {
+                    $cadena = $cadena."imgProductosGrandes/".$_REQUEST['imagen'];
+                }else
+                {
+                    $cadena = $cadena."img/store-window-g05f275403_1920.jpg";
+                }
+            ?>
+        <img class ="imgProducto" src=<?php echo $cadena ?> >
         
         <?php
             require_once("./validarCompra.php");
@@ -108,10 +118,9 @@ else
 
                 }else
                 {
-                    //generarVenta();
-                    //funcion que genera una compra
 
-                    header("location: ./finalizarCompra.php?codigo=".$_REQUEST['codigo']."&stock=".$_REQUEST['stock']."&precio=".$_REQUEST['precio']."&unidades=".$_REQUEST['cantidad']."&descripcion=".$_REQUEST['descripcion']);
+
+                    header("location: ./finalizarCompra.php?codigo=".$_REQUEST['codigo']."&stock=".$_REQUEST['stock']."&precio=".$_REQUEST['precio']."&unidades=".$_REQUEST['cantidad']."&descripcion=".$_REQUEST['descripcion']."&imagen=".$_REQUEST['imagen']);
                 }
 
             }

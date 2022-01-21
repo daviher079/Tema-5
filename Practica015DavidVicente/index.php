@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="./web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="./web-root/css/style.css"/>
 
+    <style>
+        .listaDatos
+        {
+            width: 100%;
+            height: 40px;
+            list-style: none;
+            color: transparent;
+        }
+
+
+        .listaDatos:hover
+        {
+            color: #d02b4d;
+            background-color: rgba(99, 99, 99, 0.404);
+            padding: 5px;
+        }
+    </style>
 
 
     <title>Tienda Online</title>
@@ -52,11 +69,12 @@
                         {
                             echo "<a class='enlaces' href='./paginas/comprarProducto.php?codigo=".$key.
                             "&descripcion=".$value['descripcion']."&precio=".$value['precio'].
-                            "&stock=".$value['stock']."'>
-                                <div class='producto' style='background-image: url(./web-root/imgBaja/".$value['imagenBaja'].");height: 100;'>". 
-                                    $value['precio']."€</br>".
-                                    $value['descripcion']."
-                                </div>
+                            "&stock=".$value['stock']."&imagen=".$value['imagenAlta']."'>
+                                <div class='producto' style='background-image: url(./web-root/imgBajas/".$value['imagenBaja']."); background-size: 100% 100%; background-repeat: no-repeat; color: #d02b4d'>". 
+                                    "<ul class='listaDatos'>".
+                                    "<li>".$value['precio']."€</li>".
+                                    "<li>".$value['descripcion']."</li>".
+                                "</div>
                             </a>";
                         }else
                         {
@@ -103,5 +121,7 @@
         <p>Footer de David</p>
         <a href="../index.html"><img src="./web-root/img/volver.png" height="20px"></a>
     </footer>
+
+
 </body>
 </html>

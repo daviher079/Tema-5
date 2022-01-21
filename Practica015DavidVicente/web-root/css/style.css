@@ -47,8 +47,6 @@
     float: left;
     margin-right: 25px;
     margin-bottom: 25px;
-    padding: 7px;
-    
     display: flex;
     align-items: flex-end;
     justify-content: baseline;
@@ -534,5 +532,6 @@ aside h2
     font-size: 1.1em;
     display: inline-block;
     text-decoration: none;
+    background-color: rgba(99, 99, 99, 0.404)
 }
 
