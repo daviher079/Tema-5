@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="../web-root/css/style.css"/>
     <title>Lista de Deseos</title>
 
+
+
 </head>
 <body>
     <header class="cabecera">
@@ -66,12 +68,32 @@
             {
                 foreach ($_COOKIE[$usuario] as $key => $value) {
                     $producto=VerProducto($value);
-                    
-    
-                    echo "<a class='enlaces' href='./comprarProducto.php?codigo=".$producto[0].
+   
+
+
+                        if($producto[5]!="")
+                        {
+                            echo "<a class='enlaces' href='./comprarProducto.php?codigo=".$producto[0].
                             "&descripcion=".$producto[1]."&precio=".$producto[2].
-                            "&stock=".$producto[3]."'><div class='producto'>".
-                            $producto[1]."</div></a>";
+                            "&stock=".$producto[3]."&imagen=".$producto[4]."'>
+                                <div class='producto' style='background-image: url(../web-root/imgBajas/".$producto[5]."); background-size: 100% 100%; background-repeat: no-repeat; color: #d02b4d'>". 
+                                    "<ul class='listaDatos'>".
+                                    "<li>".$producto[2]."€</li>".
+                                    "<li>".$producto[1]."</li>".
+                                "</div>
+                            </a>";
+                        }else
+                        {
+                            echo "<a class='enlaces' href='./comprarProducto.php?codigo=".$producto[0].
+                            "&descripcion=".$producto[1]."&precio=".$producto[2].
+                            "&stock=".$producto[3]."'>
+                                <div class='producto'>". 
+                                    $producto[2]."€</br>".
+                                    $producto[1]."
+                                </div>
+                            </a>";
+
+                        }
                 }
             }
 

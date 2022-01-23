@@ -86,7 +86,7 @@ function VerProducto($codigo)
             if($sql->rowCount()==1)
             {
                 $row=$sql->fetch();
-                array_push($array, $row['codigoProducto'], $row['descripcion'], $row['precio'], $row['stock']);
+                array_push($array, $row['codigoProducto'], $row['descripcion'], $row['precio'], $row['stock'], $row['imagenAlta'], $row['imagenBaja']);
             }
 
 

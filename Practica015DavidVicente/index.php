@@ -7,25 +7,6 @@
     <link rel="stylesheet" href="./web-root/css/resetCSS.css"/>
     <link rel="stylesheet" href="./web-root/css/style.css"/>
 
-    <style>
-        .listaDatos
-        {
-            width: 100%;
-            height: 40px;
-            list-style: none;
-            color: transparent;
-        }
-
-
-        .listaDatos:hover
-        {
-            color: #d02b4d;
-            background-color: rgba(99, 99, 99, 0.404);
-            padding: 5px;
-        }
-    </style>
-
-
     <title>Tienda Online</title>
 </head>
 <body>
